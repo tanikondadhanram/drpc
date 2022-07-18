@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package data;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "/pb";
+
+message Request {
+ google.protobuf.Struct requestData = 1;
+}
+
+message Response {
+  google.protobuf.Struct responseData = 1;
+}
+
+service Storage {
+  rpc GetData(Request) returns (Response) {}
+}
